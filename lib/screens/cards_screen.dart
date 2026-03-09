@@ -37,7 +37,7 @@ class _CardsScreenState extends State<CardsScreen> {
     final card = CardModel(
       cardName: name,
       suit: suit,
-      imageUrl: "",
+      imageUrl: "https://deckofcardsapi.com/static/img/AS.png",      
       folderId: widget.folder.id!,
     );
 
@@ -114,6 +114,13 @@ class _CardsScreenState extends State<CardsScreen> {
           final card = cards[index];
 
           return ListTile(
+
+            leading: Image.network(
+              card.imageUrl.isEmpty
+                  ? "https://deckofcardsapi.com/static/img/AS.png"
+                  : card.imageUrl,
+              width: 50,
+            ),
 
             title: Text(card.cardName),
             subtitle: Text(card.suit),
